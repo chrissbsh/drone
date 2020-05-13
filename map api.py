@@ -4,9 +4,9 @@ from math import *
 
 import googlemaps
 
-gmaps = googlemaps.Client(key='AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0')
+gmaps = googlemaps.Client(key='KEY')
 
-#url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0"
+#url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key='KEY"
 
 #a = urllib.request.urlopen(url)
 
@@ -37,12 +37,12 @@ Q1=(R1+"%20"+CP1+"%20"+V1)
 
 print(Q1)
 
-url1=("https://api.opencagedata.com/geocode/v1/json?q="+Q1+",%20FRANCE&key=7ec07c47db6749d9a436cde14a5aface&language=fr&pretty=1")
+url1=("https://api.opencagedata.com/geocode/v1/json?q="+Q1+",%20FRANCE&key='KEY'&language=fr&pretty=1")
 
 print(url1)
 
 #geocoding
-#url = "https://api.opencagedata.com/geocode/v1/json?q=PARIS,%20FRANCE&key=7ec07c47db6749d9a436cde14a5aface"
+#url = "https://api.opencagedata.com/geocode/v1/json?q=PARIS,%20FRANCE&key='KEY'"
 
 q = urllib.request.urlopen(url1)
 
