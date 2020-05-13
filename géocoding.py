@@ -6,7 +6,7 @@ from math import *
 
 from opencage.geocoder import OpenCageGeocode
 
-key = '7ec07c47db6749d9a436cde14a5aface'
+key = 'KEY'
 geocoder = OpenCageGeocode(key)
 
 
@@ -44,12 +44,12 @@ else:
 
     print(Q1)
 
-    url1=("https://api.opencagedata.com/geocode/v1/json?q="+Q1+",%20FRANCE&key=7ec07c47db6749d9a436cde14a5aface&language=fr&pretty=1")
+    url1=("https://api.opencagedata.com/geocode/v1/json?q="+Q1+",%20FRANCE&key='KEY'&language=fr&pretty=1")
 
     print(url1)
 
     #geocoding
-    #url = "https://api.opencagedata.com/geocode/v1/json?q=PARIS,%20FRANCE&key=7ec07c47db6749d9a436cde14a5aface"
+    #url = "https://api.opencagedata.com/geocode/v1/json?q=PARIS,%20FRANCE&key='KEY"
 
     q = urllib.request.urlopen(url1)
 
