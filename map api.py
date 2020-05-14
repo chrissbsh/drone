@@ -4,7 +4,7 @@ from math import *
 
 import googlemaps
 
-gmaps = googlemaps.Client(key='AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0')
+gmaps = googlemaps.Client(key='KEY')
 
 rue = input("adresse : ")
 codepostal = input("code postal : ")
@@ -21,7 +21,7 @@ V1=V0.upper()
 Q1=(R1+","+CP1+"+"+V1+",")
 print(Q1)
 
-url =("https://maps.googleapis.com/maps/api/geocode/json?address="+Q1+"+FRANCE&key=AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0")
+url =("https://maps.googleapis.com/maps/api/geocode/json?address="+Q1+"+FRANCE&key='KEY'")
 
 print(url)
 
