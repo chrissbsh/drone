@@ -4,63 +4,35 @@ from math import *
 
 import googlemaps
 
-gmaps = googlemaps.Client(key='KEY')
-
-#url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key='KEY"
-
-#a = urllib.request.urlopen(url)
-
-#data = json.load(a)
-
-#print(data)
+gmaps = googlemaps.Client(key='AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0')
 
 rue = input("adresse : ")
 codepostal = input("code postal : ")
 ville = input("ville : ")
 
-R0=rue.replace("â", "a").replace("È", "e").replace("É", "e").replace("è", "e").replace("é", "e").replace("'", "%27").replace(" ", "%20")
+R0=rue.replace("â", "a").replace("È", "e").replace("É", "e").replace("è", "e").replace("é", "e").replace(" ", "+").replace("'", "%27")
 
-V0=ville.replace("â", "a").replace("È", "e").replace("É", "e").replace("è", "e").replace("é", "e").replace("'", "%27").replace(" ", "%20")
-
+V0=ville.replace("â", "a").replace("È", "e").replace("É", "e").replace("è", "e").replace("é", "e").replace(" ", "+").replace("'", "%27")
 
 R1=R0.upper()
 CP1=codepostal.upper()
 V1=V0.upper()
 
-#R3=R2+","
-#CP2=CP1+","
-
-Q=(R1+ " "+ V1)
-print(Q)
-
-Q1=(R1+"%20"+CP1+"%20"+V1)
-
+Q1=(R1+","+CP1+"+"+V1+",")
 print(Q1)
 
-url1=("https://api.opencagedata.com/geocode/v1/json?q="+Q1+",%20FRANCE&key='KEY'&language=fr&pretty=1")
+url =("https://maps.googleapis.com/maps/api/geocode/json?address="+Q1+"+FRANCE&key=AIzaSyCewtB757lHfOlTLuI2aULxED0-H3bS9k0")
 
-print(url1)
+print(url)
 
 #geocoding
-#url = "https://api.opencagedata.com/geocode/v1/json?q=PARIS,%20FRANCE&key='KEY'"
-
-q = urllib.request.urlopen(url1)
+q = urllib.request.urlopen(url)
 
 data = json.load(q)
-
 #print(data)
 
-
-#query = u', , 21 PLACE DE JOFFRE PARIS, France'
-
-query2=("u', , " + Q + " " + 'France')
-
-print(query2)
-
-geocode_result = gmaps.geocode('22 résidence du parc de petit bourg, 91000 Evry, France')
-
+geocode_result = gmaps.geocode(Q1)
 #print(geocode_result)
-
 
 print(geocode_result[0]['geometry']['location']['lat'])
 print(geocode_result[0]['geometry']['location']['lng'])
@@ -71,10 +43,8 @@ lng=geocode_result[0]['geometry']['location']['lng']
 l2 = float(lat)
 ln2 = float(lng)
 
-
 l1=float(48.6333)
 ln1=float(2.45)
-
 
 A=fabs(l1-l2)
 print("A:" , A)
@@ -102,4 +72,4 @@ j=2*atan2(sqrt(k),sqrt(1-k))
 
 d=T*j
 
-print("distance: ", d , "m")
+print("distance: ", d, "m")
